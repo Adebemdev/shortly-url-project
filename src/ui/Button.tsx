@@ -1,92 +1,49 @@
-import React, { useState } from 'react';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
-  variant?: ButtonStyle; // Use 'variant' instead of 'type' for styling
-  // type?: 'submit' | 'reset' | 'button'; // Keep the HTML button type
+import { ReactNode } from 'react';
+import { ButtonHTMLAttributes } from 'react';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  disabled?: boolean;
-  to?: string;
-  onClick?: () => void;
-  bgBehavior?: BackgroundBehavior;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'small' | 'medium' | 'large';
 }
 
-type ButtonStyle = 'primary' | 'secondary' | 'transparent'; // etc
-type BackgroundBehavior = 'default' | 'onClick';
-
-export const Button = ({
-  children,
-  disabled = false,
-  to,
-  onClick,
+const Button = ({
   variant = 'primary',
-  bgBehavior = 'default',
+  size = 'small',
+  children,
+  onClick,
+  className = '',
+
   ...props
 }: ButtonProps) => {
-  const [isClicked, setIsClicked] = useState<Boolean>(false);
-  const getBgClasses = (
-    buttonType: ButtonStyle,
-    behavior: BackgroundBehavior,
-  ) => {
-    if (behavior === 'onClick') {
-      return isClicked ? '' : 'bg-transparent hover:bg-yellow-300';
-    }
+  //BaseStyles
+  const baseStyles =
+    'font-semibold rounded-full font-sans block transition-colors focus:outline-none focus:ring-2';
 
-    switch (buttonType) {
-      case 'primary':
-        return ' hover: focus: focus:';
-      case 'secondary':
-        return 'bg-transparent hover: focus:bg-stone-200 focus:';
-      case 'transparent':
-        return 'bg-transparent hover:bg-stone-200 focus:bg-stone-100 focus:';
-      default:
-        return ' hover: focus: focus:';
-    }
+  // Variant styles
+  const variantStyles = {
+    primary: 'bg-primary-cyan hover:bg-blue-700 text-White',
+    secondary: 'bg-gray-600 hover:bg-gray-700 text-white',
+    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
   };
 
-  const base = `
-  transition-color 
-  text-sm 
-  capitalize
-  inline-block 
-  rounded-full 
-  font-semibold 
-  tracking-wide
-`;
-
-  const styles: Record<ButtonStyle, string> = {
-    primary: `${base}  ${getBgClasses('primary', bgBehavior)} px-2 py-8 sm:px-5 sm:py-3`,
-    secondary: `
-    transition-color 
-    text-sm 
-    inline-block 
-    px-8
-    py-2.5  
-    rounded-full 
-    font-semibold 
-    tracking-wide 
-    bg-primary-cyan 
-  `,
-    transparent: `${base}
-    ${getBgClasses('transparent', bgBehavior)}
-    px-4 py-2.5`,
-  };
-
-  const handleClick = () => {
-    if (bgBehavior === 'onClick') {
-      setIsClicked(!isClicked);
-    }
-    onClick?.();
+  // Size styles
+  const sizeStyles = {
+    small: 'px-3 py-1 text-sm',
+    medium: 'px-4 py-2 text-base',
+    large: 'px-6 py-3 text-lg',
   };
 
   return (
     <button
-      onClick={handleClick}
-      className={styles[variant]}
-      disabled={disabled}
+      onClick={onClick}
       {...props}
+      className={`flex ${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
     >
       {children}
     </button>
   );
 };
+
+export default Button;
