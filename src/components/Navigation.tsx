@@ -15,7 +15,7 @@ interface NavbarProps {
 
 export const Navigation = ({
   navItems = [
-    { href: '/Feature', label: 'Features', id: 1 },
+    { href: '/Features', label: 'Features', id: 1 },
     { href: '/Pricing', label: 'Pricing', id: 2 },
     { href: '/Resources', label: 'Resources', id: 3 },
   ],
@@ -23,9 +23,9 @@ export const Navigation = ({
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
   return (
-    <header className="bg-White shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 font-sans sm:px-6 lg:px-8">
-        <div className="flex h-10 justify-between md:h-20">
+    <header className="relative bg-White">
+      <div className="mx-auto max-w-7xl px-4 font-sans sm:px-6 lg:px-10">
+        <div className="flex justify-between md:h-20">
           {/* Logo and Desktop Navigation */}
           <div className="flex items-center py-4">
             <div className="flex flex-shrink-0 items-center">
@@ -44,11 +44,11 @@ export const Navigation = ({
             </div>
           </div>
           <div className="hidden font-sans md:flex md:items-center md:space-x-4">
-            <Button variant="secondary" size="medium" onClick={() => {}}>
+            <Button variant="secondary" size="small" onClick={() => {}}>
               Login
             </Button>
-            <Button variant="primary" size="medium" onClick={() => {}}>
-              Sign up
+            <Button variant="primary" size="small" onClick={() => {}}>
+              Sign Up
             </Button>
           </div>
           <div className="flex items-center md:hidden">
@@ -66,26 +66,28 @@ export const Navigation = ({
           </div>
         </div>
       </div>
+      {/* Mobile Navigation */}
       {isOpen && (
-        <div className="m-4 flex flex-col items-center justify-center rounded-md bg-primary-dark-violet md:hidden">
-          <div className="space-y-4 pb-3 pt-4">
+        <div className="absolute -left-3 top-2/3 m-8 flex w-[90%] flex-col items-center justify-center rounded-lg bg-primary-dark-violet text-center md:hidden">
+          <div className="space-y-4 pb-8 pt-4">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={item.href}
-                className="block py-2 pl-3 pr-4 text-2xl font-bold text-gray-neutral"
+                className="block py-2 pl-3 pr-4 text-2xl font-bold text-White"
               >
                 {item.label}
               </a>
             ))}
           </div>
-          <div className="pb-3 pt-4">
-            <div className="space-y-1">
-              <Button variant="secondary" size="medium" onClick={() => {}}>
+
+          <div className="border-t border-gray-neutral pb-8 pt-8">
+            <div className="flex flex-col items-center justify-center space-y-4">
+              <Button variant="secondary" size="large" onClick={() => {}}>
                 Login
               </Button>
-              <Button variant="primary" size="medium" onClick={() => {}}>
-                Sign up
+              <Button variant="primary" size="large" onClick={() => {}}>
+                Sign Up
               </Button>
             </div>
           </div>

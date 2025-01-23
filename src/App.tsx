@@ -1,4 +1,5 @@
 import { Navigation } from './components/Navigation';
+import { HeroSection } from './components/HeroSection';
 
 const App = () => {
   const navigationItems = [
@@ -8,8 +9,11 @@ const App = () => {
   ];
 
   return (
-    <div className="">
-      <Navigation navItems={navigationItems} />
+    <div className="h-screen bg-White">
+      <div>
+        <Navigation navItems={navigationItems} />
+        <HeroSection />
+      </div>
     </div>
   );
 };
