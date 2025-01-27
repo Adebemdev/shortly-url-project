@@ -1,5 +1,9 @@
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
+import Statistics from './components/Statistics';
+import SearchBar from './components/SearchBar';
+import BoostLinks from './components/BoostLinks';
+import Footer from './components/Footer';
 
 const App = () => {
   const navigationItems = [
@@ -9,11 +13,13 @@ const App = () => {
   ];
 
   return (
-    <div className="h-screen bg-White">
-      <div>
-        <Navigation navItems={navigationItems} />
-        <HeroSection />
-      </div>
+    <div className="relative h-screen bg-White">
+      <Navigation navItems={navigationItems} />
+      <HeroSection />
+      <SearchBar />
+      <Statistics />
+      <BoostLinks />
+      <Footer />
     </div>
   );
 };

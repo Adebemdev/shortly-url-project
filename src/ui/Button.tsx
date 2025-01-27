@@ -5,7 +5,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   onClick: () => void;
   variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | 'rect';
 }
 
 const Button = ({
@@ -24,8 +24,9 @@ const Button = ({
   // Variant styles
   const variantStyles = {
     primary: 'bg-primary-cyan hover:bg-blue-700 text-White',
-    secondary: 'bg-gray-600 hover:bg-gray-700 lg:text-gray-neutral',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
+    secondary: ' hover:bg-gray-700 lg:text-gray-neutral ',
+    outline:
+      'bg-primary-cyan text-white w-full md:w-1/4 rounded-md leading-[1.15] tracking-tightest',
   };
 
   // Size styles
@@ -33,6 +34,7 @@ const Button = ({
     small: 'px-6 py-2 text-sm',
     medium: 'px-12 py-4 text-xl',
     large: 'px-24 py-2 text-2xl',
+    rect: 'px-12  py-4 text-xl',
   };
 
   return (

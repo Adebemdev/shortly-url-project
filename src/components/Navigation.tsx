@@ -23,15 +23,15 @@ export const Navigation = ({
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
   return (
-    <header className="relative bg-White">
-      <div className="mx-auto max-w-7xl px-4 font-sans sm:px-6 lg:px-10">
-        <div className="flex justify-between md:h-20">
+    <header className="relative">
+      <div className="mx-auto max-w-7xl max-sm:px-3">
+        <div className="flex justify-between md:h-28">
           {/* Logo and Desktop Navigation */}
-          <div className="flex items-center py-4">
+          <div className="flex items-center gap-8">
             <div className="flex flex-shrink-0 items-center">
               <img src={LogoIcon} alt="" />
             </div>
-            <div className="hidden md:ml-6 md:flex md:space-x-8">
+            <div className="hidden md:ml-6 md:flex md:space-x-12">
               {navItems.map((item) => (
                 <a
                   key={item.id}

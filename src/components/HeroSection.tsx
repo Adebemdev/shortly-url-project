@@ -2,12 +2,12 @@ import IllustationImg from '../assets/icons/illustration-working.svg';
 import Button from '../ui/Button';
 export const HeroSection = () => {
   return (
-    <section className="lg:p-20">
-      <div className="flex flex-col-reverse md:grid md:grid-cols-[auto_700px]">
-        <div className="p-4 lg:py-10">
-          <div className="flex md:flex-col md:items-start md:pl-36">
-            <div className="flex flex-col items-center justify-center pt-4 md:items-start">
-              <h1 className="mb-4 text-center font-sans text-5xl font-bold leading-[1.15] text-very-dark-violet md:text-left lg:text-7xl">
+    <section className="pb-10 lg:px-20 lg:pb-20">
+      <div className="flex flex-col-reverse py-28 md:grid md:grid-cols-[auto_700px] md:gap-10 lg:py-20">
+        <div className="lg:py-10">
+          <div className="flex md:flex-col md:items-start md:pl-28">
+            <div className="flex flex-col items-center justify-center pt-8 md:items-start">
+              <h1 className="mb-4 text-center font-sans text-5xl font-bold leading-[1.15] text-very-dark-violet md:mb-1 md:text-left lg:text-7xl">
                 <span>More than just</span>
                 <br />
                 <span>shorter links</span>
@@ -18,17 +18,15 @@ export const HeroSection = () => {
                   how your links are performing.
                 </p>
               </div>
-              <Button variant="primary" size="medium" onClick={() => {}}>
-                Get Started
-              </Button>
+              <div>
+                <Button variant="primary" size="medium" onClick={() => {}}>
+                  Get Started
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mb-28 mt-10 px-4 md:m-0 md:px-0">
-          <div className="">
-            <img src={IllustationImg} alt="" />
-          </div>
-        </div>
+        <img src={IllustationImg} alt="" width={800} className="px-2" />
       </div>
     </section>
   );
