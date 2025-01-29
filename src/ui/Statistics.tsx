@@ -1,8 +1,8 @@
 import brandIcon from '../assets/icons/icon-brand-recognition.svg';
 import detailedRecordsIcon from '../assets/icons/icon-detailed-records.svg';
 import fullyCustomIcon from '../assets/icons/icon-fully-customizable.svg';
-import { Title, Description, Image } from '../ui/CardContents';
-import ReuseableCard from '../ui/ReuseableCard';
+import { Title, Description, Image } from '../components/CardContents';
+import ReuseableCard from '../components/ReuseableCard';
 
 const Statistics = () => {
   return (

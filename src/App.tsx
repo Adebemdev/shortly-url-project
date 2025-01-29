@@ -1,9 +1,9 @@
-import { Navigation } from './components/Navigation';
-import { HeroSection } from './components/HeroSection';
-import Statistics from './components/Statistics';
-import SearchBar from './components/SearchBar';
-import BoostLinks from './components/BoostLinks';
-import Footer from './components/Footer';
+import { Navigation } from './ui/Navigation';
+import { HeroSection } from './ui/HeroSection';
+import Statistics from './ui/Statistics';
+import SearchBar from './ui/SearchBar';
+import BoostLinks from './ui/BoostLinks';
+import Footer from './ui/Footer';
 
 const App = () => {
   const navigationItems = [
@@ -13,14 +13,14 @@ const App = () => {
   ];
 
   return (
-    <div className="relative h-screen bg-White">
+    <main className="relative h-screen bg-White">
       <Navigation navItems={navigationItems} />
       <HeroSection />
       <SearchBar />
       <Statistics />
       <BoostLinks />
       <Footer />
-    </div>
+    </main>
   );
 };
 

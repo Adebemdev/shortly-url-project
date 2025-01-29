@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LogoIcon from '../assets/icons/logo.svg';
 import { Menu, X } from 'lucide-react';
-import Button from '../ui/Button';
+import Button from '../components/Button';
 
 interface NavLinks {
   label: string;

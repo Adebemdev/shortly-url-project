@@ -1,14 +1,6 @@
-import { useState } from 'react';
-import Button from '../ui/Button';
-// import bgShortenImage from '../assets/icons/bg-shorten-desktop.svg';
+import Button from '../components/Button';
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState<string>('');
-
-  const handleSearch = () => {
-    console.log('Searching for:', searchTerm);
-  };
-
   return (
     <div className="bg-gray--002 relative flex items-center justify-center pb-20 lg:p-20">
       <div className="bg-ttuPattern absolute left-1/2 top-1 flex w-full max-w-7xl -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-4 rounded-md bg-primary-dark-violet bg-cover bg-center bg-repeat p-5 shadow-lg md:flex-row md:p-10">
@@ -17,10 +9,9 @@ const SearchBar = () => {
             type="text"
             placeholder="Shorten a link here..."
             className="w-full rounded-md px-4 py-4 font-sans text-xl font-semibold text-gray-neutral focus:outline-none focus:ring-2 md:w-3/4"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={() => {}}
           />
-          <Button variant="outline" size="rect" onClick={handleSearch}>
+          <Button variant="outline" size="rect" onClick={() => {}}>
             Shorten it!
           </Button>
         </div>
