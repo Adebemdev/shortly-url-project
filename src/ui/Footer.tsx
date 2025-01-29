@@ -25,7 +25,7 @@ const Footer = () => {
     <div className="bg-very-dark-blue px-20 py-8">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 py-10 md:flex-row md:items-start">
         <div className="flex items-center md:w-1/4">
-          <h1 className="text-3xl font-bold text-White">Shortly</h1>
+          <h1 className="text-5xl font-bold text-White">Shortly</h1>
         </div>
         <div className="flex w-full flex-1 flex-col gap-10 text-center md:flex-row md:text-left">
           <div className="flex flex-col px-6">

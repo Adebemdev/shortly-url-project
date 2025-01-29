@@ -23,7 +23,8 @@ const Button = ({
 
   // Variant styles
   const variantStyles = {
-    primary: 'bg-primary-cyan hover:bg-blue-700 text-White',
+    primary:
+      'bg-primary-cyan hover:bg-blue-700 text-White  px-6 py-3 text-white rounded-full  hover:opacity-50 cursor-pointer transition duration-300',
     secondary: ' hover:bg-gray-700 lg:text-gray-neutral ',
     outline:
       'bg-primary-cyan text-white w-full md:w-1/4 rounded-md leading-[1.15] tracking-tightest',
