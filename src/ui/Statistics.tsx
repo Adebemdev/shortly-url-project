@@ -3,55 +3,12 @@ import detailedRecordsIcon from '../assets/icons/icon-detailed-records.svg';
 import fullyCustomIcon from '../assets/icons/icon-fully-customizable.svg';
 import { Title, Description, Image } from '../components/CardContents';
 import ReuseableCard from '../components/ReuseableCard';
-import ResultsUrl from '../components/ResultsUrl';
-import UrlContext from '../UrlContext';
-import clipboardCopy from 'clipboard-copy';
-import { useContext } from 'react';
 
 interface StatisticsProps {}
 
 const Statistics = ({}: StatisticsProps) => {
-  const { resultUrl, setResultUrl } = useContext(UrlContext);
-
-  let id = 0;
-
-  function handleClick(id: number) {
-    setResultUrl((prevValue) => {
-      return prevValue.map((element) => {
-        if (element.urlId === id) {
-          const handleCopyClick = async () => {
-            try {
-              await clipboardCopy(element.shortenedUrl);
-              console.log('successful copying of text');
-            } catch (error) {
-              console.error('Failed to copy text', error);
-            }
-          };
-          handleCopyClick();
-          return {
-            ...element,
-            isCopied: true,
-          };
-        }
-        return element;
-      });
-    });
-  }
-
   return (
     <section className="bg-gray--002 px-6 pb-28">
-      <div>
-        {resultUrl.map((element) => (
-          <ResultsUrl
-            key={id++}
-            id={element.urlId}
-            originalUrl={element.originalUrl}
-            shortenedUrl={element.shortenedUrl}
-            isCopied={element.isCopied}
-            handleClick={handleClick}
-          ></ResultsUrl>
-        ))}
-      </div>
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center pt-12 md:pt-8">
           <div className="flex w-full items-center justify-center p-8">

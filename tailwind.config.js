@@ -3,12 +3,12 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Poppins'],
+      ['sans']: ['Poppins', 'sans-serif'],
     },
     extend: {
       backgroundImage: {
-        ttuPattern: "url('./assets/icons/bg-shorten-desktop.svg')",
-        ttuPattern2: "url('./assets/icons/bg-boost-desktop.svg')",
+        'shorten-desktop': "url('./assets/icons/bg-shorten-desktop.svg')",
+        'boost-desktop': "url('./assets/icons/bg-boost-desktop.svg')",
       },
       fontSize: {
         huge: ['80rem', { lineHeight: '1' }],
